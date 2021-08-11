@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hamishdocker/docker-react -f Dockerfile.dev .
+
+script: 
+ - docker run hamishdocker/docker-react npm run test -- --coverage
